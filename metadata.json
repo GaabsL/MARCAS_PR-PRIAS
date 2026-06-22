@@ -1,0 +1,8 @@
+{
+  "name": "Social Performance BI",
+  "description": "Dashboard executivo de performance de redes sociais focado em Marcas Próprias.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
