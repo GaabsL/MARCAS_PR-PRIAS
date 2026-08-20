@@ -14,9 +14,19 @@ export function DataTable({ data }: DataTableProps) {
     const r = rede.toLowerCase();
     if (r.includes("facebook")) return "bg-blue-100 text-blue-700";
     if (r.includes("instagram feed") || r === "instagram") return "bg-pink-100 text-pink-700";
-    if (r.includes("stories")) return "bg-orange-100 text-orange-700";
-    if (r.includes("tiktok")) return "bg-slate-200 text-slate-800";
+    if (r.includes("stories")) return "bg-amber-100 text-amber-700";
+    if (r.includes("tiktok")) return "bg-slate-800 text-white";
     return "bg-indigo-100 text-indigo-700";
+  };
+
+  const getFormatColor = (tipo: string) => {
+    const t = tipo.toLowerCase();
+    if (t.includes("carrossel")) return "bg-indigo-500";
+    if (t.includes("reels")) return "bg-fuchsia-500";
+    if (t.includes("stories")) return "bg-amber-500";
+    if (t.includes("vídeo") || t.includes("video")) return "bg-emerald-500";
+    if (t.includes("estático") || t.includes("estatico") || t.includes("imagem")) return "bg-sky-500";
+    return "bg-slate-400";
   };
 
   return (
@@ -57,23 +67,36 @@ export function DataTable({ data }: DataTableProps) {
                   </span>
                 </td>
                 <td className="px-5 py-2.5 max-w-[200px]">
-                  <a
-                    href={post.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex flex-col hover:opacity-80 transition-opacity"
-                  >
-                    <span className="font-bold text-slate-800 truncate">
-                      {post.criativo}
-                    </span>
-                    <span className="text-[9px] text-slate-400 truncate uppercase mt-0.5">
-                      {post.categoria} • {post.subGrupo}
-                    </span>
-                  </a>
+                  {post.link ? (
+                    <a
+                      href={post.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex flex-col hover:opacity-80 transition-opacity group"
+                    >
+                      <span className="font-bold text-slate-800 truncate group-hover:text-indigo-600">
+                        {post.criativo}
+                      </span>
+                      <span className="text-[9px] text-slate-400 truncate uppercase mt-0.5">
+                        {post.categoria} • {post.subGrupo}
+                      </span>
+                    </a>
+                  ) : (
+                    <div className="flex flex-col">
+                      <span className="font-bold text-slate-800 truncate">
+                        {post.criativo}
+                      </span>
+                      <span className="text-[9px] text-slate-400 truncate uppercase mt-0.5">
+                        {post.categoria} • {post.subGrupo}
+                      </span>
+                    </div>
+                  )}
                 </td>
-                <td className="px-5 py-2.5 flex items-center gap-1.5 pt-4">
-                  <div className={`w-2 h-2 rounded-sm ${post.tipo === 'Carrossel' ? 'bg-indigo-500' : post.tipo === 'Vídeo' ? 'bg-emerald-500' : 'bg-orange-500'}`}></div>
-                  {post.tipo}
+                <td className="px-5 py-2.5 whitespace-nowrap">
+                  <div className="flex items-center gap-1.5">
+                    <div className={`w-2 h-2 rounded-sm ${getFormatColor(post.tipo)}`}></div>
+                    <span>{post.tipo}</span>
+                  </div>
                 </td>
                 <td className="px-5 py-2.5 text-right font-bold text-slate-800">
                   {formatNumber(post.alcance)}

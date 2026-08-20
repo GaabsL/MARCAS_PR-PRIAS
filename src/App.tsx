@@ -13,10 +13,18 @@ export default function App() {
   const [selectedQuinzena, setSelectedQuinzena] = useState<string>("all");
   const [selectedRede, setSelectedRede] = useState<string>("all");
 
-  // Dinamicamente extrair as opções únicas de filtro baseadas nos dados
+  // Dinamicamente extrair as opções únicas de filtro baseadas nos dados em ordem cronológica decrescente
   const quinzenasOptions = useMemo(() => {
-    const unique = Array.from(new Set(reportData.map((d) => d.quinzena)));
-    return unique.sort().reverse(); // Mais recente primeiro
+    const mapQuinzenaToDate = new Map<string, number>();
+    reportData.forEach((d) => {
+      const time = new Date(d.data).getTime();
+      if (!mapQuinzenaToDate.has(d.quinzena) || time > mapQuinzenaToDate.get(d.quinzena)!) {
+        mapQuinzenaToDate.set(d.quinzena, time);
+      }
+    });
+    return Array.from(mapQuinzenaToDate.keys()).sort(
+      (a, b) => mapQuinzenaToDate.get(b)! - mapQuinzenaToDate.get(a)!
+    );
   }, []);
 
   const redesOptions = useMemo(() => {
