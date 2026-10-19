@@ -613,5 +613,41 @@ export const reportData: SocialPostInfo[] = [
     engajamento: 2.49,
     link: "https://www.tiktok.com/@assaiatacadistaoficial/video/7672788486528716033",
     criativo: "Publicação Economizasso - 11/08"
+  },
+  {
+    id: "post-34",
+    quinzena: "2026 - Setembro (2ª Quinzena)",
+    rede: "Instagram Feed",
+    tipo: "Estático",
+    categoria: "OFERTAS",
+    subGrupo: "BENEFÍCIOS MP | Leva que vale",
+    data: "2026-09-27T12:00:00",
+    alcance: 31125,
+    impressoes: 46894,
+    interacoes: 101,
+    curtidas: 79,
+    comentarios: 7,
+    compartilhamentos: 12,
+    engajamento: 0.26,
+    link: "https://www.instagram.com/p/Ddyerb5F13Z/",
+    criativo: "Publicação Ofertas (Leva que vale) - 27/09"
+  },
+  {
+    id: "post-35",
+    quinzena: "2026 - Setembro (2ª Quinzena)",
+    rede: "TikTok",
+    tipo: "Vídeo",
+    categoria: "OFERTAS",
+    subGrupo: "PRATOS COM MP | Leva que vale",
+    data: "2026-09-28T14:00:00",
+    alcance: 487,
+    impressoes: 0,
+    interacoes: 8,
+    curtidas: 8,
+    comentarios: 0,
+    compartilhamentos: 0,
+    engajamento: 1.89,
+    link: "https://www.tiktok.com/@assaiatacadistaoficial",
+    criativo: "Publicação Ofertas (Pratos com MP) - 28/09"
   }
 ];

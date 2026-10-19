@@ -49,6 +49,19 @@ export default function App() {
     });
   }, [selectedQuinzena, selectedRede]);
 
+  // Obter dados da quinzena anterior para cálculo real de tendência nos KPIs
+  const previousQuinzenaData = useMemo(() => {
+    if (selectedQuinzena === "all") return undefined;
+    const currentIndex = quinzenasOptions.indexOf(selectedQuinzena);
+    if (currentIndex === -1 || currentIndex >= quinzenasOptions.length - 1) return undefined;
+    const prevQuinzena = quinzenasOptions[currentIndex + 1];
+    return reportData.filter((post) => {
+      const matchQuinzena = post.quinzena === prevQuinzena;
+      const matchRede = selectedRede === "all" || post.rede === selectedRede;
+      return matchQuinzena && matchRede;
+    });
+  }, [selectedQuinzena, selectedRede, quinzenasOptions]);
+
   const handleExportCSV = () => {
     if (filteredData.length === 0) return;
 
@@ -176,7 +189,11 @@ export default function App() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-            <KPICards data={filteredData} />
+            <KPICards
+              data={filteredData}
+              previousData={previousQuinzenaData}
+              isAllPeriod={selectedQuinzena === "all"}
+            />
             <AreaEvolutionChart data={filteredData} />
             <InteractionsDonutChart data={filteredData} />
             <FormatBarChart data={filteredData} />
