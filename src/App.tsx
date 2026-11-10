@@ -123,9 +123,19 @@ export default function App() {
       {/* Header Section */}
       <header className="flex flex-col md:flex-row md:items-center justify-between px-6 md:px-8 py-4 bg-white border-b border-slate-200 sticky top-0 z-10 shadow-sm">
         <div className="flex flex-wrap items-center gap-4 mb-4 md:mb-0">
-          <div className="flex items-center gap-4 pr-4 md:border-r md:border-slate-200">
-            <img src="https://i.imgur.com/ihchsJt.png" alt="Logo Empresa" className="h-8 sm:h-10 w-auto object-contain" referrerPolicy="no-referrer" />
-            <img src="https://i.imgur.com/lAyMWKF.png" alt="Logo Agência" className="h-5 sm:h-6 w-auto object-contain opacity-90" referrerPolicy="no-referrer" />
+          <div className="flex items-center gap-4 sm:gap-5 pr-4 md:border-r md:border-slate-200">
+            <img 
+              src="https://i.imgur.com/ihchsJt.png" 
+              alt="Logo Cliente Assaí" 
+              className="h-11 sm:h-14 md:h-16 w-auto object-contain transition-all" 
+              referrerPolicy="no-referrer" 
+            />
+            <img 
+              src="https://i.imgur.com/TsdlOBh.png" 
+              alt="Logo Agência" 
+              className="h-7 sm:h-8 md:h-9 w-auto object-contain opacity-95 transition-all" 
+              referrerPolicy="no-referrer" 
+            />
           </div>
           <div className="flex flex-col">
             <h1 className="text-lg sm:text-xl font-bold text-slate-800 tracking-tight leading-tight">

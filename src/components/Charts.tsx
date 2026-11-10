@@ -48,11 +48,11 @@ export function AreaEvolutionChart({ data }: ChartsProps) {
           Evolução Diária: Alcance vs. Impressões
         </h3>
         <div className="flex gap-4 text-[10px] font-bold uppercase hidden sm:flex">
-          <span className="flex items-center gap-1 text-indigo-500">
-            <div className="w-2 h-2 rounded-full bg-indigo-500"></div> Alcance
+          <span className="flex items-center gap-1 text-sky-600">
+            <div className="w-2 h-2 rounded-full bg-sky-500"></div> Alcance
           </span>
-          <span className="flex items-center gap-1 text-sky-400">
-            <div className="w-2 h-2 rounded-full bg-sky-400"></div> Impressões
+          <span className="flex items-center gap-1 text-orange-600">
+            <div className="w-2 h-2 rounded-full bg-orange-500"></div> Impressões
           </span>
         </div>
       </div>
@@ -61,12 +61,12 @@ export function AreaEvolutionChart({ data }: ChartsProps) {
           <AreaChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
             <defs>
               <linearGradient id="colorImpressoes" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#4f46e5" stopOpacity={0.8} />
-                <stop offset="95%" stopColor="#4f46e5" stopOpacity={0} />
+                <stop offset="5%" stopColor="#f97316" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="#f97316" stopOpacity={0.05} />
               </linearGradient>
               <linearGradient id="colorAlcance" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="#38bdf8" stopOpacity={0.8} />
-                <stop offset="95%" stopColor="#38bdf8" stopOpacity={0} />
+                <stop offset="95%" stopColor="#38bdf8" stopOpacity={0.05} />
               </linearGradient>
             </defs>
             <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#64748b' }} dy={10} />
@@ -77,8 +77,8 @@ export function AreaEvolutionChart({ data }: ChartsProps) {
                labelStyle={{ color: '#0f172a', fontWeight: 600, marginBottom: '4px' }}
             />
             <Legend iconType="circle" wrapperStyle={{ fontSize: '14px', paddingTop: '10px' }} />
-            <Area type="monotone" dataKey="impressoes" name="Impressões" stroke="#4f46e5" strokeWidth={2} fillOpacity={1} fill="url(#colorImpressoes)" />
-            <Area type="monotone" dataKey="alcance" name="Alcance" stroke="#38bdf8" strokeWidth={2} fillOpacity={1} fill="url(#colorAlcance)" />
+            <Area type="monotone" dataKey="impressoes" name="Impressões" stroke="#f97316" strokeWidth={2} fillOpacity={1} fill="url(#colorImpressoes)" />
+            <Area type="monotone" dataKey="alcance" name="Alcance" stroke="#0284c7" strokeWidth={2} fillOpacity={1} fill="url(#colorAlcance)" />
           </AreaChart>
         </ResponsiveContainer>
       </div>
